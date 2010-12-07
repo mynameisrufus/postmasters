@@ -1,0 +1,37 @@
+#form
+  - form_tag do
+    .input.text
+      = label_tag :name, "name"
+      = text_field_tag :name
+    .input.date
+      = label_tag :arrive, "staying from"
+      = text_field_tag :arrive
+    .input.date
+      = label_tag :depart, "staying to"
+      = text_field_tag :depart
+    .input.select
+      = label_tag :room_type, "desired room type"
+      = select_tag :room_type, options_for_select(["Queen bed", "Queen bed + single", "Twin share"]), :size => 3
+    .input.text
+      = label_tag :email, "email"
+      = email_field_tag :email
+    .input.text
+      = label_tag :phone_number, "phone number"
+      = telephone_field_tag :phone_number
+    .input.textarea
+      = text_area_tag :message
+    .input.submit
+      %button{:type => 'submit'}
+        Release the pidgeon
+#tariffs
+  %p Queen bed + single
+  %p $100 per night
+  %p Qeen bed
+  %p $100 per night
+  %p Twin share
+  %p $100 per night
+#contact
+  %p Call John or Dorothy on:
+  %p +64 (0) 9 405 7676
+  %p or email:
+  %p= link_to "ferrymans@xtra.co.nz", "mailto:ferrymans@xtra.co.nz"
