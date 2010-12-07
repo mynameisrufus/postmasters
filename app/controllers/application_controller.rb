@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
+  
+  before_filter do
+    response.headers['Cache-Control'] = "public, max-age=#{1.week.to_s}"
+  end
 
   before_filter do
     @s3_url = "http://s3.amazonaws.com/thepostmasterslodgings.co.nz"
@@ -8,7 +12,18 @@ class ApplicationController < ActionController::Base
 
   def index; end
 
-  def booking; end
+  def booking;
+    if request.post?
+      @booking = Booking.new(params[:booking])
+      if @booking.valid?
+        BookingMailer.confirm(@booking).deliver
+        BookingMailer.book(@booking).deliver
+        render 'pidgeon'
+      end
+    else
+      @booking = Booking.new
+    end
+  end
 
   def gallery;
     @pictures = [

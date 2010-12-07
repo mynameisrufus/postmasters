@@ -1,0 +1,18 @@
+<h2>I would like to stay at your abode John!</h2>
+<p><%= @booking.name %> would like to stay from:</p>
+<p><strong><%= @booking.arrive %></strong></p>
+<p>to:</p>
+<p><strong><%= @booking.depart %></strong></p>
+<p>and staying in a <%= @booking.room_type %>.</p>
+<p><%= @booking.name %>'s contact details:</p>
+<ul>
+  <li>Email: <%= @booking.email %></li>
+  <li>Phone: <%= @booking.phone_number %></li>
+</ul>
+<% unless @booking.message.empty? %>
+<h4>Addtional message from <%= @booking.message %></h4>
+<p><%= @booking.message %></p>
+<% else %>
+<p><i>no additional message</i></p>
+<% end %>
+

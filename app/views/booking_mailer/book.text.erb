@@ -1,0 +1,23 @@
+I would like to stay at your abode John!
+
+================================================
+
+<%= @booking.name %> would like to stay from:
+<%= @booking.arrive %> to: <%= @booking.depart %> and stay in a <%= @booking.room_type %>.
+
+================================================
+
+<%= @booking.name %>'s contact details:
+* Email: <%= @booking.email %>
+* Phone: <%= @booking.phone_number %>
+
+<% unless @booking.message.empty? %>
+Addtional message from <%= @booking.message %>
+
+------------------------------------------------
+<%= @booking.message %>
+------------------------------------------------
+<% else %>
+no additional message
+<% end %>
+

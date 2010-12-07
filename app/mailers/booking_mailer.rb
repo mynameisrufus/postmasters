@@ -1,16 +1,23 @@
 class BookingMailer < ActionMailer::Base
-  default :from => "ferrymans@xtra.co.nz"
-
-  config.action_mailer.delivery_method = :smtp 
-  config.action_mailer.smtp_settings = {
-    :address              => "smtp.xtra.co.nz",
-    :port                 => 465,
-    :user_name            => 'ferrymans@xtra.co.nz',
-    :password             => 'jp181240',
-    :authentication       => 'plain'
-  }
-
   def confirm(booking)
-    mail(:to => booking.email,  :subject => "Please see the Terms and Conditions attached")
+    @booking = booking
+    mail(
+      :from    => johns_email,
+      :to      => booking.email,
+      :subject => "Your Postmasters Booking"
+    )
   end 
+  
+  def book(booking)
+    @booking = booking
+    mail(
+      :from    => booking.email,
+      :to      => johns_email,
+      :subject => "New Postmasters Booking"
+    )
+  end
+
+  def johns_email
+    "ferrymans@xtra.co.nz"
+  end
 end

@@ -1,25 +1,29 @@
+%nav#more
+  %ul
+    %li= link_to "Tariffs", "#tariffs"
+    %li= link_to "Contact directly", "#contact"
 #form
-  - form_tag do
+  = form_for @booking, :url => booking_path do |form|
     .input.text
-      = label_tag :name, "name"
-      = text_field_tag :name
+      = form.label :name, "name"
+      = form.text_field :name
     .input.date
-      = label_tag :arrive, "staying from"
-      = text_field_tag :arrive
+      = form.label :arrive, "staying from"
+      = form.text_field :arrive
     .input.date
-      = label_tag :depart, "staying to"
-      = text_field_tag :depart
+      = form.label :depart, "staying to"
+      = form.text_field :depart
     .input.select
-      = label_tag :room_type, "desired room type"
-      = select_tag :room_type, options_for_select(["Queen bed", "Queen bed + single", "Twin share"]), :size => 3
+      = form.label :room_type, "desired room type"
+      = form.select :room_type, options_for_select(["Queen bed", "Queen bed + single", "Twin share"]), :size => 3
     .input.text
-      = label_tag :email, "email"
-      = email_field_tag :email
+      = form.label :email, "email"
+      = form.email_field :email
     .input.text
-      = label_tag :phone_number, "phone number"
-      = telephone_field_tag :phone_number
+      = form.label :phone_number, "phone number"
+      = form.telephone_field :phone_number
     .input.textarea
-      = text_area_tag :message
+      = form.text_area :message
     .input.submit
       %button{:type => 'submit'}
         Release the pidgeon
