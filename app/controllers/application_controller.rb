@@ -2,13 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
   
-  before_filter do
-    response.headers['Cache-Control'] = "public, max-age=#{1.week.to_s}"
-  end
-
-  before_filter do
-    @s3_url = "http://s3.amazonaws.com/thepostmasterslodgings.co.nz"
-  end
+  before_filter :cache, :only => [:index, :gallery]
 
   def index; end
 
@@ -50,5 +44,10 @@ class ApplicationController < ActionController::Base
       {:name => "postmasters_22", :title => "Photo by rollo: Rawene beach"},
       {:name => "postmasters_23", :title => "Photo by rollo: Rawene beach"},
     ]
+  end
+
+  protected
+  def cache
+    response.headers['Cache-Control'] = "public, max-age=#{1.week.to_s}"
   end
 end
