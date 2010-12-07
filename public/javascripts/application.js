@@ -1,4 +1,9 @@
+$('html').addClass('js');
+
 $(document).ready(function($) {
+  //FOUC
+  $('h1').show();
+
   $(".input.date input").datepicker({});
   // We only want these styles applied when javascript is enabled
   $('div.navigation').css({'width' : '200px', 'float' : 'left'});

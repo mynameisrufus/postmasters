@@ -1,4 +1,6 @@
 #gallery-container {
+  a {
+    color: #777777; }
   div {
     &.content {
       /* The display of content is enabled using jQuery so that the slideshow content won't display unless javascript is enabled. */

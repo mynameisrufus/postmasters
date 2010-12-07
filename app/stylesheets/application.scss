@@ -1,6 +1,8 @@
 @import "gallery";
 @import "ui";
 
+$s3: "http://s3.amazonaws.com/thepostmasterslodgings.co.nz";
+
 @font-face {
   font-family: 'EdwardianScriptITCRegular';
   src: url('itcedscr-webfont.eot');
@@ -8,6 +10,9 @@
   font-weight: normal;
   font-style: normal; }
 
+.js {
+  h1 {
+    display:none; } }
 
 body {
   background: none repeat scroll 0 0 #EEEEEE;
@@ -17,8 +22,16 @@ body {
   padding: 0; }
 
 a {
-  color: #777777;
-  text-decoration: none; }
+  color: #2277BB;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline; } }
+  
+nav {
+  a {
+    color: #777777;
+    &:hover {
+      text-decoration: none; } } }
 
 #container {
   background-color: #FFFFFF;
@@ -64,4 +77,44 @@ header {
             color: #FFF; } } } } } }
 
 #booking-container {
-  background:url("http://s3.amazonaws.com/thepostmasterslodgings.co.nz/stamp.png") no-repeat scroll right center transparent; }
+  background:url("#{$s3}/stamp.png") no-repeat scroll right center transparent; }
+
+div.hover {
+  color: #666666;
+  display: block;
+  text-decoration: none;
+  margin: 45px 45px 0px 45px;
+  float:left;
+  width:200px; }
+
+#luxpic, #botpic, #rawpic { 
+  background: url("#{$s3}/hover.jpg") repeat-x scroll 0 0 transparent;
+  padding: 180px 0px 0px 0px;
+  &:hover {
+    a {
+      background-color:#FF6600;
+      color:#FFFFFF; } }
+  a {
+    color: #777777;
+    text-decoration:none;
+    font: 20pt/20pt verdanda;
+    height: 25px;
+    padding: 10px;
+    background-color:#FFFFFF;
+    display:block;
+    text-transform: uppercase; } }
+
+#luxpic {
+  background-position: 0px 0px;
+  &:hover {
+    background-position: 0px -180px; } }
+
+#botpic {
+  background-position: -200px 0px;
+  &:hover {
+    background-position: -200px -180px; } }
+
+#rawpic {
+  background-position: -400px 0px;
+  &:hover {
+    background-position: -400px -180px; } }
