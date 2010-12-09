@@ -4,11 +4,8 @@
     %title The Postmasters Lodgings | Luxury Boutique Accommodation
     %meta{:name => "description", :content => "The Postmasters Lodgings"}/
     %meta{:name => "keywords", :content => "Luxury Boutique Accommodation Rawene New Zealand"}/
-    %link{:href => s3("favicon.png"), :rel => "shortcut icon"}/
     = stylesheet_link_tag 'application'
-    = javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js', 'jquery.galleriffic.js', 'jquery.opacityrollover.js', 'application'
-    /[if IE]
-      =javascript_include_tag 'http://html5shiv.googlecode.com/svn/trunk/html5.js'
+    %link{:href => s3("favicon.png"), :rel => "shortcut icon"}/
     = csrf_meta_tag
   %body
     #container
@@ -22,6 +19,35 @@
             %li= link_to "Booking", "booking"
       %article
         = yield
+    :javascript
+      document.getElementsByTagName('article')[0].style.display = 'none';
+      (function() {
+          function async_load(){
+              var scripts = []
+              scripts[0] = 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js';
+              scripts[1] = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js';
+              scripts[2] = '/javascripts/jquery.galleriffic.js';
+              scripts[3] = '/javascripts/jquery.opacityrollover.js';
+              scripts[4] = '/javascripts/application.js';
+              if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
+                  scripts[5] = 'http://html5shiv.googlecode.com/svn/trunk/html5.js';
+              }
+              for (var i = 0; i < scripts.length; i++){ 
+                inject(scripts[i])
+              }
+              function inject(script) {
+                  var s = document.createElement('script'); s.type = 'text/javascript'; s.async = false;
+                  s.src = script;
+                  var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+              }
+          }
+          if (window.attachEvent) {
+              window.attachEvent('onload', async_load);
+          } else {
+              window.addEventListener('load', async_load, false);
+          }
+      })();
+      
   - if Rails.env == 'production'
     :javascript
       var _gaq = _gaq || [];
