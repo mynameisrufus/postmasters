@@ -1,5 +1,16 @@
 $(document).ready(function() {
-  $('article').fadeIn();
+  $('#luxury p, #boutique p, #rawene p').hide();
+  $('#luxpic').click(function(){
+    $('#luxury p').fadeIn();
+  });
+  $('#botpic').click(function(){
+    $('#boutique p').fadeIn();
+  });
+  $('#rawpic').click(function(){
+    $('#rawene p').fadeIn();
+  });
+  
+  $('#container').fadeIn();
 });
 
 $(".input.date input").datepicker();

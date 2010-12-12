@@ -20,15 +20,16 @@
       %article
         = yield
     :javascript
-      document.getElementsByTagName('article')[0].style.display = 'none';
+      document.getElementById('container').style.display = 'none';
+      //document.getElementsByTagName('h1')[0].style.display = 'none';
       (function() {
           function async_load(){
               var scripts = []
               scripts[0] = 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js';
               scripts[1] = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js';
-              scripts[2] = '/javascripts/jquery.galleriffic.js';
-              scripts[3] = '/javascripts/jquery.opacityrollover.js';
-              scripts[4] = '/javascripts/application.js';
+              scripts[2] = '/javascripts/jquery.galleriffic.js'
+              scripts[3] = '/javascripts/jquery.opacityrollover.js'
+              scripts[4] = '/javascripts/application.js' + "?#{rails_asset_id('/javascripts/application.js')}";
               if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
                   scripts[5] = 'http://html5shiv.googlecode.com/svn/trunk/html5.js';
               }

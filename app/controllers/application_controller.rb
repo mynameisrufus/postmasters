@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
   
-  before_filter :cache, :only => [:index, :gallery]
+  before_filter :cache, :only => [:index, :gallery], :if => Proc.new{ Rails.env == 'production' }
 
   before_filter do
     @s3_url = "http://s3.amazonaws.com/thepostmasterslodgings.co.nz"
