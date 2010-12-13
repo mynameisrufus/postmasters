@@ -1574,7 +1574,7 @@ button.ui-button::-moz-focus-inner {
 body {
   background: none repeat scroll 0 0 #EEEEEE;
   color: #777777;
-  font-family: Verdanda, Arial, sans-serif;
+  font: 12pt/20pt verdanda;
   margin: 0;
   padding: 0; }
 
@@ -1632,32 +1632,32 @@ header {
             border-bottom: 1px solid #FFF;
             color: #FFF; }
 
-#booking-container {
-  background: url("http://s3.amazonaws.com/thepostmasterslodgings.co.nz/stamp.png") no-repeat scroll right center transparent; }
-
-div.hover {
-  color: #666666;
-  display: block;
-  text-decoration: none;
-  margin: 45px 45px 0px 45px;
+.box {
   float: left;
+  display: block;
   width: 200px; }
-
-#luxpic, #botpic, #rawpic {
-  background: url("http://s3.amazonaws.com/thepostmasterslodgings.co.nz/hover.jpg") repeat-x scroll 0 0 transparent;
-  padding: 180px 0px 0px 0px; }
-  #luxpic:hover a, #botpic:hover a, #rawpic:hover a {
-    background-color: #FF6600;
-    color: #FFFFFF; }
-  #luxpic a, #botpic a, #rawpic a {
-    color: #777777;
-    text-decoration: none;
-    font: 20pt/20pt verdanda;
-    height: 25px;
-    padding: 10px;
-    background-color: #FFFFFF;
-    display: block;
-    text-transform: uppercase; }
+  .box.text {
+    margin: 25px 45px 0px 45px; }
+  .box.pic {
+    margin: 45px 45px 0px 45px;
+    background: url("http://s3.amazonaws.com/thepostmasterslodgings.co.nz/hover.jpg") repeat-x scroll 0 0 transparent;
+    padding: 180px 0px 0px 0px;
+    color: #666666;
+    text-decoration: none; }
+    .box.pic:hover {
+      text-decoration: none; }
+      .box.pic:hover span {
+        background-color: #FF6600;
+        color: #FFFFFF; }
+    .box.pic span {
+      color: #777777;
+      text-decoration: none;
+      font: 20pt/20pt verdanda;
+      height: 25px;
+      padding: 10px;
+      background-color: #FFFFFF;
+      display: block;
+      text-transform: uppercase; }
 
 #luxpic {
   background-position: 0px 0px; }
@@ -1673,3 +1673,97 @@ div.hover {
   background-position: -400px 0px; }
   #rawpic:hover {
     background-position: -400px -180px; }
+
+.input {
+  display: block;
+  clear: both;
+  margin: 10px; }
+  .input.submit button {
+    padding: 8px 30px 8px 30px;
+    border-top: 1px solid #777;
+    border-right: none;
+    border-bottom: 1px solid #777;
+    border-left: none;
+    cursor: pointer;
+    color: #777;
+    font: 12pt/20pt verdanda;
+    background: #FFF;
+    font-weight: bold;
+    margin: 20px 0px 0px 0px; }
+    .input.submit button:hover {
+      border-top: 1px solid #FFF;
+      border-right: none;
+      border-bottom: 1px solid #FFF;
+      border-left: none;
+      background: #0066B3;
+      color: #FFF; }
+  .input label {
+    display: block;
+    margin: 2px 4px 6px 4px; }
+  .input textarea {
+    height: 100px; }
+  .input input, .input textarea {
+    padding: 3px;
+    width: 400px;
+    border: 1px solid #AAA; }
+    .input input:hover, .input textarea:hover {
+      background: #FFB366; }
+
+nav#more {
+  float: left; }
+  nav#more ul {
+    margin: 0px;
+    padding: 0px 0px 0px 100px;
+    list-style: none; }
+    nav#more ul li {
+      display: inline-block;
+      padding: 0px 5px; }
+      nav#more ul li a {
+        float: left;
+        font-weight: bold;
+        line-height: 2em;
+        text-align: center;
+        text-decoration: none; }
+        nav#more ul li a:hover, nav#more ul li a:active {
+          color: #00CC00; }
+
+.stamp {
+  height: 285px;
+  top: 300px;
+  left: 730px;
+  position: absolute;
+  width: 300px;
+  z-index: 4;
+  background: url("http://s3.amazonaws.com/thepostmasterslodgings.co.nz/stamp.png") repeat-x scroll 0 0 transparent; }
+
+form#new_booking {
+  width: 440px;
+  height: 466px;
+  padding: 20px 20px 20px 20px;
+  float: left;
+  color: #777; }
+
+#tariffs, #contact {
+  color: #000000;
+  font-size: 0.7em;
+  line-height: 15px;
+  z-index: 5; }
+
+#tariffs {
+  background: url("http://s3.amazonaws.com/thepostmasterslodgings.co.nz/frameport.png") no-repeat scroll 0 0 transparent;
+  height: 175px;
+  left: 770px;
+  padding: 65px 50px 50px;
+  position: absolute;
+  top: 180px;
+  width: 125px; }
+
+#contact {
+  background: url("http://s3.amazonaws.com/thepostmasterslodgings.co.nz/frameland.png") no-repeat scroll 0 0 transparent;
+  color: #000000;
+  height: 110px;
+  left: 730px;
+  padding: 50px 60px 55px 60px;
+  position: absolute;
+  top: 490px;
+  width: 185px; }

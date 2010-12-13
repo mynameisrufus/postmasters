@@ -1,16 +1,33 @@
 $(document).ready(function() {
-  $('#luxury p, #boutique p, #rawene p').hide();
-  $('#luxpic').click(function(){
-    $('#luxury p').fadeIn();
-  });
-  $('#botpic').click(function(){
-    $('#boutique p').fadeIn();
-  });
-  $('#rawpic').click(function(){
-    $('#rawene p').fadeIn();
-  });
-  
   $('#container').fadeIn();
+  $('div.fade').hide();
+  $('a.fade').click(function(event){
+    event.preventDefault();
+    regex = new RegExp(/#(\w+)$/);
+    elem  = $(regex.exec(this)[0]);
+    elem.fadeIn();
+    $.scrollTo(elem, '50');
+  });
+  $("#new_booking").validate({
+    rules: {
+      "booking[email]": {
+        required: true,
+        email: true
+      },
+      "booking[name]": {
+        required: true
+      },
+      "booking[arrive]": {
+        required: true
+      },
+      "booking[depart]": {
+        required: true
+      },
+      "booking[phone_number]": {
+        required: true
+      }
+    }
+  });
 });
 
 $(".input.date input").datepicker();

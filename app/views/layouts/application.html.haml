@@ -21,7 +21,6 @@
         = yield
     :javascript
       document.getElementById('container').style.display = 'none';
-      //document.getElementsByTagName('h1')[0].style.display = 'none';
       (function() {
           function async_load(){
               var scripts = []
@@ -29,9 +28,11 @@
               scripts[1] = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js';
               scripts[2] = '/javascripts/jquery.galleriffic.js'
               scripts[3] = '/javascripts/jquery.opacityrollover.js'
-              scripts[4] = '/javascripts/application.js' + "?#{rails_asset_id('/javascripts/application.js')}";
+              scripts[4] = '/javascripts/jquery.scrollTo-1.4.2-min.js'
+              scripts[5] = '/javascripts/jquery.validate.min.js'
+              scripts[6] = '/javascripts/application.js' + "?#{rails_asset_id('/javascripts/application.js')}";
               if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
-                  scripts[5] = 'http://html5shiv.googlecode.com/svn/trunk/html5.js';
+                  scripts[7] = 'http://html5shiv.googlecode.com/svn/trunk/html5.js';
               }
               for (var i = 0; i < scripts.length; i++){ 
                 inject(scripts[i])
@@ -48,7 +49,6 @@
               window.addEventListener('load', async_load, false);
           }
       })();
-      
   - if Rails.env == 'production'
     :javascript
       var _gaq = _gaq || [];

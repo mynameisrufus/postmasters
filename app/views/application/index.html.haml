@@ -1,20 +1,20 @@
-#luxpic.hover
-  = link_to "luxury", "#luxury"
-#botpic.hover
-  = link_to "boutique", "#boutique"
-#rawpic.hover
-  = link_to "rawene", "#rawene"
-#luxury.hover
-  %p
-    Each room at the Postmasters is uniquely and individually styled.
-  %p  
-    You will enjoy your own en-suite, luxury bedding and when available, gorgeous food.
-#boutique.hover
-  %p
-    The Postmasters as the name suggests, was the residence of the Postmaster himself in colonial times, giving you a truly historic experience.
-#rawene.hover
-  %p
-    You will find Rawene and the Hokianga peaceful and untouched by the masses, the destination of choice for those seeking relaxation and natural beauty.
-  %p
-    If you require excitement, Rawene happens to sit within striking distance of the popular Northland hotspots.
-    = link_to "Getting here", "http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=The+Postmasters+Boutique+Hotel,+Rawene,+New+Zealand&sll=-35.391919,173.488626&sspn=0.032466,0.104456&ie=UTF8&hq=The+Postmasters+Boutique+Hotel,&hnear=Rawene,+Northland,+New+Zealand&ll=-35.387441,173.488541&spn=0.032468,0.071754&z=14&iwloc=A", { :target => "_blank" }
+= link_to content_tag(:span, "luxury"), "#luxury",     :id => "luxpic", :class => "fade box pic"
+= link_to content_tag(:span, "boutique"), "#boutique", :id => "botpic", :class => "fade box pic"
+= link_to content_tag(:span, "rawene"), "#rawene",     :id => "rawpic", :class => "fade box pic"
+.box.text
+  .fade#luxury
+    %p
+      Each room at the Postmasters is uniquely and individually styled.
+    %p  
+      You will enjoy your own en-suite, luxury bedding and when available, gorgeous food.
+.box.text
+  .fade#boutique
+    %p
+      The Postmasters as the name suggests, was the residence of the Postmaster himself in colonial times, giving you a truly historic experience.
+.box.text
+  .fade#rawene
+    %p
+      You will find Rawene and the Hokianga peaceful and untouched by the masses, the destination of choice for those seeking relaxation and natural beauty.
+    %p
+      If you require excitement, Rawene happens to sit within striking distance of the popular Northland hotspots.
+      = link_to "Getting here", "http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=The+Postmasters+Boutique+Hotel,+Rawene,+New+Zealand&sll=-35.391919,173.488626&sspn=0.032466,0.104456&ie=UTF8&hq=The+Postmasters+Boutique+Hotel,&hnear=Rawene,+Northland,+New+Zealand&ll=-35.387441,173.488541&spn=0.032468,0.071754&z=14&iwloc=A", { :target => "_blank" }
