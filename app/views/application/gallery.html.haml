@@ -13,5 +13,7 @@
           .caption
             .download
               = link_to "Download Original", "#{s3("images_gallery")}/#{picture[:name]}.jpg"
-            .image-title Title #0
-            .image-desc Description
+            .image-title
+              = picture[:title]
+            .image-desc
+              = picture[:desc]
