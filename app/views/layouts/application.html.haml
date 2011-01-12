@@ -6,6 +6,8 @@
     %meta{:name => "keywords", :content => "Luxury Boutique Accommodation Rawene New Zealand"}/
     = stylesheet_link_tag 'application'
     %link{:href => s3("favicon.png"), :rel => "shortcut icon"}/
+    /[if IE]
+      =javascript_include_tag 'http://html5shiv.googlecode.com/svn/trunk/html5.js'
     = csrf_meta_tag
   %body
     #container
@@ -31,9 +33,6 @@
               scripts[4] = '/javascripts/jquery.scrollTo-1.4.2-min.js'
               scripts[5] = '/javascripts/jquery.validate.min.js'
               scripts[6] = '/javascripts/application.js' + "?#{rails_asset_id('/javascripts/application.js')}";
-              if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
-                  scripts[7] = 'http://html5shiv.googlecode.com/svn/trunk/html5.js';
-              }
               for (var i = 0; i < scripts.length; i++){ 
                 inject(scripts[i])
               }
