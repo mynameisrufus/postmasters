@@ -6,8 +6,9 @@
     %meta{:name => "keywords", :content => "Luxury Boutique Accommodation Rawene New Zealand"}/
     = stylesheet_link_tag 'application'
     %link{:href => s3("favicon.png"), :rel => "shortcut icon"}/
+    = javascript_include_tag 'script.min.js'
     /[if IE]
-      =javascript_include_tag 'http://html5shiv.googlecode.com/svn/trunk/html5.js'
+      = javascript_include_tag 'http://html5shiv.googlecode.com/svn/trunk/html5.js'
     = csrf_meta_tag
   %body
     #container
@@ -23,39 +24,33 @@
         = yield
     :javascript
       document.getElementById('container').style.display = 'none';
-      (function() {
-          function async_load(){
-              var scripts = []
-              scripts[0] = 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js';
-              scripts[1] = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js';
-              scripts[2] = '/javascripts/jquery.galleriffic.js'
-              scripts[3] = '/javascripts/jquery.opacityrollover.js'
-              scripts[4] = '/javascripts/jquery.scrollTo-1.4.2-min.js'
-              scripts[5] = '/javascripts/jquery.validate.min.js'
-              scripts[6] = '/javascripts/application.js' + "?#{rails_asset_id('/javascripts/application.js')}";
-              for (var i = 0; i < scripts.length; i++){ 
-                inject(scripts[i])
-              }
-              function inject(script) {
-                  var s = document.createElement('script'); s.type = 'text/javascript'; s.async = false;
-                  s.src = script;
-                  var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-              }
-          }
-          if (window.attachEvent) {
-              window.attachEvent('onload', async_load);
-          } else {
-              window.addEventListener('load', async_load, false);
-          }
-      })();
-  - if Rails.env == 'production'
-    :javascript
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-17751156-3']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+      var scripts = [];
+      $script('http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js', 'jquery', function() {
+        scripts[0] = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js';
+        scripts[1] = "#{javascript_path('jquery.galleriffic')}"
+        scripts[2] = "#{javascript_path('jquery.opacityrollover')}"
+        scripts[3] = "#{javascript_path('jquery.scrollTo-1.4.2-min')}"
+        scripts[4] = "#{javascript_path('jquery.validate.min')}"
+        $script(scripts, 'plugins')
+      });
+      $script.ready('jquery', function() {
+        $('div.fade').hide();
+        $('a.fade').click(function(event){
+          event.preventDefault();
+          regex = new RegExp(/#(\w+)$/);
+          elem  = $(regex.exec(this)[0]);
+          elem.fadeIn();
+          $.scrollTo(elem, '50');
+        });
+        $(document).ready(function() {
+          setTimeout(function(){
+            $('#container').fadeIn();
+          }, 1);
+        });
+      });
+    - if Rails.env == 'production'
+      :javascript
+        $script("//www.google-analytics.com/ga.js", function(){
+          var t = _gat._getTracker ("UA-17751156-3");
+          t._trackPageview();
+        });

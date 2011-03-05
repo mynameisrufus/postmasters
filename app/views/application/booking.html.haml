@@ -35,3 +35,7 @@
   %p or email:
   %p= link_to "ferrymans@xtra.co.nz", "mailto:ferrymans@xtra.co.nz"
 .stamp
+:javascript
+  $script.ready('plugins', function() {
+    $script("#{javascript_path('booking')}", 'booking');
+  });
