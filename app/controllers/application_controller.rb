@@ -1,14 +1,12 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
-  layout 'application'
-  
-  before_filter :cache, :only => [:index, :gallery], :if => Proc.new{ Rails.env == 'production' }
 
   before_filter do
     @s3_url = "http://s3.amazonaws.com/thepostmasterslodgings.co.nz"
   end
 
-  def index; end
+  def index
+    expires_in 1.day, public: true
+  end
 
   def booking;
     if request.post?
@@ -23,7 +21,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def gallery;
+  def gallery
+    expires_in 1.day, public: true
+
     @pictures = [
       {:name => "postmasters_24", :title => "The kitchen", :desc => "This is where the fabulous meals at the Postmasters are prepared (available on request)"},
       {:name => "postmasters_25", :title => "Street level", :desc => "The Postmasters seen from the main street of Rawene"},
@@ -56,10 +56,5 @@ class ApplicationController < ActionController::Base
       {:name => "postmasters_22", :title => "Tree and Hokianga harbour", :desc => "Photo by rollo"},
       {:name => "postmasters_23", :title => "Room 2", :desc => "Room two of the Postmasters"}
     ]
-  end
-
-  protected
-  def cache
-    response.headers['Cache-Control'] = "public, max-age=#{1.week.to_s}"
   end
 end

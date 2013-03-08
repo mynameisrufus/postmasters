@@ -23,7 +23,6 @@
       %article
         = yield
     :javascript
-      document.getElementById('container').style.display = 'none';
       var scripts = [];
       $script('http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js', 'jquery', function() {
         scripts[0] = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js';
@@ -41,11 +40,6 @@
           elem  = $(regex.exec(this)[0]);
           elem.fadeIn();
           $.scrollTo(elem, '50');
-        });
-        $(document).ready(function() {
-          setTimeout(function(){
-            $('#container').fadeIn();
-          }, 1);
         });
       });
     - if Rails.env == 'production'

@@ -24,6 +24,8 @@ module Postmasters
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
+    config.cache_store = :memory_store
+
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
       :address        => "smtp.sendgrid.net",
