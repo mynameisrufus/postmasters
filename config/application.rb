@@ -2,14 +2,11 @@ require File.expand_path('../boot', __FILE__)
 
 require "action_controller/railtie"
 require "action_mailer/railtie"
-require "active_resource/railtie"
+require "active_model/railtie"
 
-if defined?(Bundler)
-  # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
-  # If you want your assets lazily compiled in production, use this line
-  # Bundler.require(:default, :assets, Rails.env)
-end
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(*Rails.groups)
 
 module Postmasters
   class Application < Rails::Application
@@ -25,16 +22,6 @@ module Postmasters
     config.encoding = "utf-8"
 
     config.cache_store = :memory_store
-
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = {
-      :address        => "smtp.sendgrid.net",
-      :port           => "25",
-      :authentication => :plain,
-      :user_name      => ENV['SENDGRID_USERNAME'],
-      :password       => ENV['SENDGRID_PASSWORD'],
-      :domain         => ENV['SENDGRID_DOMAIN']
-    }
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]

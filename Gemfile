@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.2.11'
-gem 'haml',  '~> 3.1.7'
-gem 'thin',  '~> 1.5'
+gem 'rails', '~> 4.2.2'
+gem 'haml',  '~> 4.0.6'
+gem 'thin',  '~> 1.6.3'

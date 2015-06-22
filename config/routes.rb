@@ -1,5 +1,6 @@
-Postmasters::Application.routes.draw do
-  root :to => "application#index"
-  match "booking" => "application#booking"
-  match "gallery" => "application#gallery"
+Rails.application.routes.draw do
+  root 'application#index'
+  get 'booking' => 'application#booking'
+  post 'booking' => 'application#place_booking'
+  get 'gallery' => 'application#gallery'
 end

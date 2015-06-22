@@ -8,16 +8,18 @@ class ApplicationController < ActionController::Base
     expires_in 1.day, public: true
   end
 
-  def booking;
-    if request.post?
-      @booking = Booking.new(params[:booking])
-      if @booking.valid?
-        BookingMailer.confirm(@booking).deliver
-        BookingMailer.book(@booking).deliver
-        render 'pidgeon'
-      end
-    else
-      @booking = Booking.new
+  def booking
+    @booking = Booking.new
+  end
+
+  def place_booking
+    @booking = Booking.new(params[:booking])
+    if @booking.valid?
+      BookingMailer.confirm(@booking).deliver_now
+      BookingMailer.book(@booking).deliver_now
+      render 'pidgeon'
+    else 
+      render 'new'
     end
   end
 
