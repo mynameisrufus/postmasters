@@ -1,4 +1,6 @@
 = form_for @booking, :url => booking_path do |form|
+  - @booking.errors.full_messages.each do |msg|
+    %p= msg
   .input.text
     = form.label :name, "name"
     = form.text_field :name
@@ -35,7 +37,3 @@
   %p or email:
   %p= link_to "ferrymans@xtra.co.nz", "mailto:ferrymans@xtra.co.nz"
 .stamp
-:javascript
-  $script.ready('plugins', function() {
-    $script("#{javascript_path('booking')}", 'booking');
-  });

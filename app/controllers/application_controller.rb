@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
       BookingMailer.book(@booking).deliver_now
       render 'pidgeon'
     else 
-      render 'new'
+      render 'booking'
     end
   end
 

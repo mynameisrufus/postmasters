@@ -1,0 +1,49 @@
+@import "foundation_and_overrides";
+
+@font-face {
+  font-family: 'EdwardianScriptITCRegular';
+  src: url('itcedscr-webfont.eot');
+  src: local("☺"), url('itcedscr-webfont.woff') format("woff"), url('itcedscr-webfont.ttf') format("truetype"), url('itcedscr-webfont.svg#webfont5FK5mWTJ') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.top-bar {
+  .name {
+    h1 a {
+      color: #444444;
+      font-family: 'EdwardianScriptITCRegular', sans-serif;
+      font-size: rem-calc(50);
+    }
+  }
+}
+
+@media #{$small-up} {
+  .top-bar {
+    .name {
+      h1 a {
+        font-size: rem-calc(30);
+      }
+    }
+  }
+}
+
+@media #{$medium-up} {
+  .top-bar {
+    .name {
+      h1 a {
+        font-size: rem-calc(40);
+      }
+    }
+  }
+}
+
+@media #{$large-up} {
+  .top-bar {
+    .name {
+      h1 a {
+        font-size: rem-calc(50);
+      }
+    }
+  }
+}
