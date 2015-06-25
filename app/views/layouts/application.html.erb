@@ -8,15 +8,19 @@
     <link href=<%= s3("favicon.png") %> rel="shortcut icon" />
     <title>The Postmasters Lodgings | Boutique Accommodation Rawene New Zealand</title>
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <% if Rails.env.production? %>
       <%= render partial: 'layouts/google_analytics' %>
     <% end %>
   </head>
   <body>
-    <%= render partial: 'layouts/top_bar' %>
-    <%= yield %>
+    <div class="row">
+      <div class="large-12 columns">
+        <%= render partial: 'layouts/top_bar' %>
+        <%= yield %>
+      </div>
+    </div>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application" %>
   </body>
 </html>

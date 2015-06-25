@@ -101,7 +101,7 @@ $white       : #FFFFFF;
 // $vapor       : #F6F6F6;
 // $white-smoke : #F5F5F5;
 // $silver      : #EFEFEF;
-// $smoke       : #EEEEEE;
+$smoke       : #EEEEEE;
 // $gainsboro   : #DDDDDD;
 $iron        : #CCCCCC;
 // $base        : #AAAAAA;
@@ -125,7 +125,7 @@ $kermit      : #00CC00;
 // $info-color: #a0d3e8;
 
 // We use these to control various global styles
-// $body-bg: $white;
+$body-bg: $smoke;
 // $body-font-color: $jet;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
