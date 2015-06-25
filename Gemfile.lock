@@ -40,17 +40,9 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.0)
     builder (3.2.2)
-    coffee-rails (4.1.0)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.9.1.1)
     daemons (1.2.2)
     erubis (2.7.0)
     eventmachine (1.0.7)
-    execjs (2.5.2)
     foundation-rails (5.5.2.1)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
@@ -115,8 +107,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
-    turbolinks (2.5.3)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
 
@@ -130,4 +120,3 @@ DEPENDENCIES
   jquery-rails (~> 4.0.4)
   rails (~> 4.2.2)
   thin (~> 1.6.3)
-  turbolinks
