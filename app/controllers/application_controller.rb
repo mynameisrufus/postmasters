@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   before_filter do
     @s3_url = "http://s3.amazonaws.com/thepostmasterslodgings.co.nz"
   end

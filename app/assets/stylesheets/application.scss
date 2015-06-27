@@ -94,56 +94,11 @@
   #rawpic:hover {
     background-position: -400px -180px; }
 
-.input {
-  display: block;
-  clear: both;
-  margin: 10px; }
-  .input.submit button {
-    padding: 8px 30px 8px 30px;
-    border-top: 1px solid #777;
-    border-right: none;
-    border-bottom: 1px solid #777;
-    border-left: none;
-    cursor: pointer;
-    color: #777;
-    font: 12pt/20pt verdanda;
-    background: #FFF;
-    font-weight: bold;
-    margin: 20px 0px 0px 0px; }
-    .input.submit button:hover {
-      border-top: 1px solid #FFF;
-      border-right: none;
-      border-bottom: 1px solid #FFF;
-      border-left: none;
-      background: #0066B3;
-      color: #FFF; }
-  .input label {
-    display: block;
-    margin: 2px 4px 6px 4px; }
-  .input textarea {
-    height: 100px; }
-  .input input, .input textarea {
-    padding: 3px;
-    width: 400px;
-    border: 1px solid #AAA; }
-    .input input:hover, .input textarea:hover {
-      background: #FFB366; }
-
 .stamp {
   height: 285px;
-  top: 300px;
-  left: 730px;
-  position: absolute;
   width: 300px;
   z-index: 4;
   background: url("http://s3.amazonaws.com/thepostmasterslodgings.co.nz/stamp.png") repeat-x scroll 0 0 transparent; }
-
-form#new_booking {
-  width: 440px;
-  height: 466px;
-  padding: 20px 20px 20px 20px;
-  float: left;
-  color: #777; }
 
 #tariffs, #contact {
   color: #000000;
@@ -154,18 +109,12 @@ form#new_booking {
 #tariffs {
   background: url("http://s3.amazonaws.com/thepostmasterslodgings.co.nz/frameport.png") no-repeat scroll 0 0 transparent;
   height: 175px;
-  left: 770px;
   padding: 65px 50px 50px;
-  position: absolute;
-  top: 180px;
   width: 125px; }
 
 #contact {
   background: url("http://s3.amazonaws.com/thepostmasterslodgings.co.nz/frameland.png") no-repeat scroll 0 0 transparent;
   color: #000000;
   height: 110px;
-  left: 730px;
   padding: 50px 60px 55px 60px;
-  position: absolute;
-  top: 490px;
   width: 185px; }

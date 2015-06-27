@@ -95,6 +95,9 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     sass (3.4.15)
+    simple_form (3.1.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     sprockets (3.2.0)
       rack (~> 1.0)
     sprockets-rails (2.3.1)
@@ -118,10 +121,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_link_to (~> 1.0.3)
+  active_link_to
   foundation-rails (~> 5.5.2)
   haml (~> 4.0.6)
   jquery-rails (~> 4.0.4)
   rails (~> 4.2.2)
+  simple_form
   thin (~> 1.6.3)
   uglifier (~> 2.7.1)
