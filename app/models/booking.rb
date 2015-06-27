@@ -33,7 +33,7 @@ class Booking
     @message = attributes['message']
   end
 
-  def parse_date(default:, day:, month:, year:)
+  def parse_date(default: Date.today, day: nil, month: nil, year: nil)
     return default unless day && month && year
     Date.civil(year.to_i, month.to_i, day.to_i)
   end 
