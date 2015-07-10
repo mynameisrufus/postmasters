@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="small-12 columns">
+    <ul class="clearing-thumbs small-block-grid-3 medium-block-grid-6" data-clearing>
+      <% @pictures.each do |picture| %>
+        <li><%= lightbox_thumb(picture) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

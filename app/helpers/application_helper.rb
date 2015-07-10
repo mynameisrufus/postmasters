@@ -1,18 +1,14 @@
 module ApplicationHelper
-  def s3(key)
-    "#{@s3_url}/#{key}"
-  end
-  
-  def picture_helper(picture)
+  def lightbox_thumb(picture)
     link_to(
       image_tag(
-        "#{s3("images_gallery")}/#{picture[:name]}_s.jpg", :alt => picture[:title]
+        picture.thumb_url,
+        'alt' => picture.title,
+        'data-caption' => picture.description
       ),
-      "#{s3("images_gallery")}/#{picture[:name]}.jpg", {
-        :name  => picture[:name],
-        :title => picture[:title],
-        :class => "thumb"
-      }
+      picture.url,
+      'name' => picture.name,
+      'class' => 'th'
     )
   end
 end

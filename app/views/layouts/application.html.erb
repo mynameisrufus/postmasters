@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name= "description", content="The Postmasters Lodgings" />
     <meta name= "keywords" content="Boutique Accommodation Rawene New Zealand" />
-    <link href=<%= s3("favicon.png") %> rel="shortcut icon" />
+    <link href="/favicon.png" rel="shortcut icon" />
     <title>The Postmasters Lodgings | Boutique Accommodation Rawene New Zealand</title>
-    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag "application" %>
     <%= csrf_meta_tags %>
     <% if Rails.env.production? %>
       <%= render partial: 'layouts/google_analytics' %>
