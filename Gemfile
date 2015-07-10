@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby '2.2.0'
 
 gem 'rails', '~> 4.2.2'
 gem 'haml', '~> 4.0.6'
@@ -8,3 +9,4 @@ gem 'simple_form'
 gem 'foundation-rails', '~> 5.5.2'
 gem 'jquery-rails', '~> 4.0.4'
 gem 'uglifier', '~> 2.7.1'
+gem 'rails_12factor'
