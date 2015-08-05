@@ -53,46 +53,56 @@
 }
 
 .box {
-  float: left;
   display: block;
-  width: 200px; }
-  .box.text {
-    margin: 25px 45px 0px 45px; }
-  .box.pic {
-    margin: 45px 45px 0px 45px;
+  margin: 0 auto;
+  width: 200px;
+  &.text {
+    padding: 20px 10px 10px 10px;
+  }
+  &.pic {
     background: url("http://s3.amazonaws.com/thepostmasterslodgings.co.nz/hover.jpg") repeat-x scroll 0 0 transparent;
     padding: 180px 0px 0px 0px;
     color: #666666;
-    text-decoration: none; }
-    .box.pic:hover {
-      text-decoration: none; }
-      .box.pic:hover span {
-        background-color: #FF6600;
-        color: #FFFFFF; }
-    .box.pic span {
+    text-decoration: none;
+    span {
       color: #777777;
       text-decoration: none;
       font: 20pt/20pt verdanda;
-      height: 25px;
       padding: 10px;
       background-color: #FFFFFF;
       display: block;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+    }
+  }
+  &:hover {
+    text-decoration: none;
+    span {
+      background-color: #FF6600;
+      color: #FFFFFF;
+    }
+  }
+}
 
 #luxpic {
-  background-position: 0px 0px; }
-  #luxpic:hover {
-    background-position: 0px -180px; }
+  background-position: 0px 0px;
+  &:hover {
+    background-position: 0px -180px;
+  }
+}
 
 #botpic {
-  background-position: -200px 0px; }
-  #botpic:hover {
-    background-position: -200px -180px; }
+  background-position: -200px 0px;
+  &:hover {
+    background-position: -200px -180px;
+  }
+}
 
 #rawpic {
-  background-position: -400px 0px; }
-  #rawpic:hover {
-    background-position: -400px -180px; }
+  background-position: -400px 0px;
+  &:hover {
+    background-position: -400px -180px;
+  }
+}
 
 .stamp {
   height: 285px;
