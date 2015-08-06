@@ -14,6 +14,6 @@ class BookingMailer < ActionMailer::Base
   end
 
   def johns_email
-    "ferrymans@xtra.co.nz"
+    "thepostmasterslodgings@vodafone.co.nz"
   end
 end
