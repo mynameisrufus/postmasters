@@ -10,3 +10,7 @@ gem 'foundation-rails', '~> 5.5.2'
 gem 'jquery-rails', '~> 4.0.4'
 gem 'uglifier', '~> 2.7.1'
 gem 'rails_12factor'
+
+group :development do
+  gem 'foreman'
+end

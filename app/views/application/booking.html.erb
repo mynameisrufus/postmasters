@@ -1,5 +1,16 @@
 <div class="row">
   <div class="medium-6 columns">
+    <nav class="show-for-small-only">
+      <div class="icon-bar two-up">
+        <%= link_to "#tariffs", class: "item" do %>
+          <label>Tariffs</label>
+        <% end %>
+        <%= link_to "#contact", class: "item" do %>
+          <label>Contact directly</label>
+        <% end %>
+      </div>
+    </nav>
+
     <%= simple_form_for @booking do |f| %>
       <%= f.input :name %>
       <div class="row">
@@ -25,27 +36,20 @@
   </div>
 
   <div class="medium-6 columns">
-    <nav id="more">
-      <ul>
-        <li>
-          <%= link_to "Tariffs", "#tariffs", :class => "fade" %>
-        </li>
-        <li>
-          <%= link_to "Contact directly", "#contact", :class => "fade" %>
-        </li>
-      </ul>
-    </nav>
-    <div class="fade" id="tariffs">
+    <div id="tariffs">
       <p>Queen rooms with ensuite from $100 to $120 per night.</p>
       <p>Extra persons for single beds $25.</p>
     </div>
-    <div class="fade" id="contact">
-      <p>Call John or Dorothy on:</p>
-      <p>+64 (0) 9 405 7676</p>
-      <p>or email:</p>
-      <p>
-        <%= link_to "thepostmasterslodgings@vodafone.co.nz", "mailto:thepostmasterslodgings@vodafone.co.nz" %>
-      </p>
+    <div  id="contact">
+      <p>Contact John or Dorothy</p>
+        <ul>
+          <li>
+            <%= link_to "+64 (0) 9 405 7676", "tel:+64 (0) 9 405 7676" %>
+          </li>
+          <li>
+            <%= link_to "e-mail", "mailto:thepostmasterslodgings@vodafone.co.nz" %>
+          </li>
+        </ul>
     </div>
     <div class="stamp"></div>
   </div>
