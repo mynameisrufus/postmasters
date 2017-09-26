@@ -5,21 +5,25 @@ class BookingMailer < ActionMailer::Base
 
   def confirm(booking)
     @booking = booking
-    mail from: the_postmasters,
+    mail from: the_app,
          to: format(booking.name, booking.email),
-         reply_to: 'stay@thepostmasterslodgings.co.nz',
-         subject: 'Your Postmasters Booking'
+         reply_to: stay,
+         subject: 'Your Postmasters Booking Enquiry'
   end 
   
   def book(booking)
     @booking = booking
-    mail from: the_postmasters,
-         to: the_postmasters,
+    mail from: the_app,
+         to: stay,
          reply_to: booking.email,
-         subject: 'New Postmasters Booking'
+         subject: "Booking Enquiry from #{booking.name}"
   end
 
-  def the_postmasters
+  def stay
+    'stay@thepostmasterslodgings.co.nz'
+  end
+
+  def the_app
     format('The Postmasters Lodgings', ENV['ZOHO_USERNAME'])
   end
 end
