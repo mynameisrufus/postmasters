@@ -7,6 +7,7 @@ class BookingMailer < ActionMailer::Base
     @booking = booking
     mail from: the_postmasters,
          to: format(booking.name, booking.email),
+         reply_to: 'stay@thepostmasterslodgings.co.nz',
          subject: 'Your Postmasters Booking'
   end 
   
@@ -14,6 +15,7 @@ class BookingMailer < ActionMailer::Base
     @booking = booking
     mail from: the_postmasters,
          to: the_postmasters,
+         reply_to: booking.email,
          subject: 'New Postmasters Booking'
   end
 
