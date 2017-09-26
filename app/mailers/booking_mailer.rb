@@ -1,19 +1,23 @@
 class BookingMailer < ActionMailer::Base
+  def format(name, email)
+    "\"#{name}\" <#{email}>"
+  end
+
   def confirm(booking)
     @booking = booking
-    mail from: johns_email,
-         to: booking.email,
-         subject: "Your Postmasters Booking"
+    mail from: the_postmasters,
+         to: format(booking.name, booking.email),
+         subject: 'Your Postmasters Booking'
   end 
   
   def book(booking)
     @booking = booking
-    mail from: booking.email,
-         to: johns_email,
-         subject: "New Postmasters Booking"
+    mail from: the_postmasters,
+         to: the_postmasters,
+         subject: 'New Postmasters Booking'
   end
 
-  def johns_email
-    "stay@thepostmasterslodgings.co.nz"
+  def the_postmasters
+    format('The Postmasters Lodgings', ENV['ZOHO_USERNAME'])
   end
 end
